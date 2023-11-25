@@ -1,0 +1,149 @@
+article {
+	padding: 2em clamp(1.8em, 1em + 3vw, 4em);
+	background-color: white;
+	font-size: 0.9rem;
+	
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-gap);
+}
+
+.cv {
+	--clr-text: #000;
+	--clr-accent: orange;
+	--h-margin: 1em;
+	--h-size: 1.2em;
+	--p-margin: 0.8em;
+	--p-size: 1em;
+	--section-gap: 35px;
+	
+	--bullet-size: 0.6em;
+	--bullet-offset: 0.6em;
+	--line-weight: 1px;
+}
+
+.cv__header {
+	display: grid;
+	grid-template-columns: minmax(80px, 120px) 1fr;
+	grid-template-rows: repeat(auto);
+	gap: 10px;
+}
+
+.cv__header > img {
+	width: 100%;
+	aspect-ratio: 1;
+	
+	grid-row: 1 / span 2;
+	
+	border: 2px solid var(--clr-accent);
+	border-radius: 50%;
+	
+	object-fit: cover;
+	object-position: center;
+}
+
+.cv__header > h1 {
+	margin: 0;
+	
+	font-size: calc(var(--h-size) * 2);
+	line-height: 1;
+	
+	text-transform: uppercase;
+}
+
+.cv__header h1 > b {
+	color: var(--clr-accent);
+}
+
+.cv__header > ul {
+	padding: 0;
+	margin: 0; 
+	list-style-type: none;
+}
+
+.cv > section {
+	position: relative;
+}
+
+.cv > section::before,
+.cv > section:not(:last-of-type)::after {
+	position: absolute;
+	content: '';
+	
+	background-color: var(--clr-accent);
+}
+
+.cv > section::before {
+	width: var(--bullet-size);
+	height: var(--bullet-size);
+	
+	top: calc(var(--h-margin) + calc(var(--h-size) / 2));
+	right: calc(100% + var(--bullet-offset));
+	border-radius: 50%;
+}
+
+.cv > section::after {
+	width: var(--line-weight);
+	height: calc(100% + var(--section-gap));
+	
+	right: calc(100% + var(--bullet-offset) + calc(var(--bullet-size) / 2) - calc(var(--line-weight) / 2));
+	top: calc(var(--h-margin) + calc(var(--h-size) / 2) + var(--bullet-size));
+}
+
+.cv h2 {
+	margin: var(--h-margin) 0;
+	color: var(--clr-accent);
+	font-size: var(--h-size);
+}
+
+.cv p {
+	margin: var(--p-margin) 0;
+	font-size: var(--p-size);
+}
+
+.cv > dd {
+	margin: 0;
+}
+
+.cv > #skills ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	
+	font-size: var(--p-size);
+}
+
+.nav-ctr {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.nav-ctr ul {
+	padding: 0;
+}
+
+.nav-ctr li {
+	display: inline-block;
+}
+
+.blog-article {
+
+}
+
+.blog-article > img {
+	width: 100%;
+	aspect-ratio: 3 / 1;
+
+	object-fit: cover;
+	object-position: center;
+}
+
+.blog-article > h2 {
+	font-size: 2rem;
+	margin: 10px 0;
+}
+
+.blog-article > p {
+	margin: 10px 0;
+	line-height: 1.2em;
+}
